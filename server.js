@@ -4,6 +4,8 @@ const methodOverride = require("method-override")
 const app = express()
 require("dotenv").config()
 const DATABASE_URL = process.env.DATABASE_URL
+const Products = require("./models/products.js")
+const seedData = require("./models/seedData.js")
 const mongoose = require("mongoose")
 const DB = mongoose.connection
 // Connect to Database
@@ -19,7 +21,34 @@ DB.on("disconnected", ()=> console.log("Mongoose disconnected"))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"))
 ////// ROUTES
-app.get("/", (req, res)=> res.send("it's working"))
+// root & seed
+app.get("/", (req, res)=> res.send("<a href='/products'>Go to Products</a>"))
+app.get("/products/seed", (req, res)=>{
+    Products.deleteMany({}, (error, allProducts)=>{})
+    Products.create(seedData, (error, data)=>{
+        res.redirect("/products")
+    })
+})
+// Index
+app.get("/products", (req, res)=>{
+    Products.find({}, (error, allProducts)=>{
+        res.render("index.ejs", {
+            allProducts: allProducts,
+        })
+    })
+})
+// New
+app.get("/products/new", (req, res)=>{
+    res.send("New Product Page...")
+})
+// Destroy
+// Update
+// Create
+// Edit
+// Show
+app.get("/products/:id", (req, res)=>{
+    res.send("Show Page")
+})
 ////// LISTENER
 const PORT = process.env.PORT
 app.listen(PORT, ()=> console.log("connected on port", PORT))
