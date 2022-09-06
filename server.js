@@ -47,7 +47,11 @@ app.get("/products/new", (req, res)=>{
 // Edit
 // Show
 app.get("/products/:id", (req, res)=>{
-    res.send("Show Page")
+    Products.findById(req.params.id, (error, foundProduct) =>{
+        res.render("show.ejs", {
+            foundProduct: foundProduct,
+        })
+    })
 })
 ////// LISTENER
 const PORT = process.env.PORT

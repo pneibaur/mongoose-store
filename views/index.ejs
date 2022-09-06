@@ -11,7 +11,7 @@
     <ul>
         <% allProducts.forEach(product => { %>
             <li>
-                <a href="#"><%=product.name %></a>
+                <a href="/products/<%=product._id%>"><%=product.name %></a>
             </li>
         <% }); %> 
     </ul>
