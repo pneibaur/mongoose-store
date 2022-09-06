@@ -39,7 +39,7 @@ app.get("/products", (req, res)=>{
 })
 // New
 app.get("/products/new", (req, res)=>{
-    res.send("New Product Page...")
+    res.render("new.ejs")
 })
 // Destroy
 // Update
