@@ -15,7 +15,7 @@
                         <img  src="<%=product.img%>" style="max-height: 100px; max-width: auto;" alt="<%=product.name%>">
                         <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
                             <input class="button is-small is-link" type="submit" value="Delete">
-                            <a class="button is-small is-link" href="#">Edit</a>
+                            <a class="button is-small is-link" href="/products/<%=product._id%>/edit">Edit</a>
                         </form>
                     </li>
                 </fieldset>
