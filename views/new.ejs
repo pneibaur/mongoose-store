@@ -1,35 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include("./partials/head.ejs") %>
 </head>
+
 <body>
-    <nav><a href="/products">Back to overview</a></nav>
-    <div class="container">
-        <div class="sidebar">
-            <div class="newProduct">
-                <h1>New Product Form</h1>
-                <form method="POST" action="/products">
-                    <fieldset class="coreInfo">
-                        <legend>CORE PRODUCT INFO</legend>
-                        <label for="prodName">Product Title</label>
-                        <input type="text" name="name" id="prodName"><br>
-                        <label for="prodPrice">Price</label>
-                        <input type="number" name="price" id="prodPrice"><br>
-                        <label for="prodQty">Quantity</label>
-                        <input type="number" name="qty" id="prodQty"><br>
-                    </fieldset>
-                    <fieldset class="descriptors">
-                        <legend>DESCRIPTORS</legend>
-                        <label for="prodDescription">Description</label>
-                        <input type="text" name="description" id="prodDescription"><br>
-                        <label for="prodImg">Image</label>
-                        <input type="text" name="img" id="prodImg"><br>
-                    </fieldset>
-                    <input type="submit" value="Submit"><br>
-                </form>
+    <div class="container is-fluid">
+        <div class="navbar" role="navigation" aria-label="main navigation" style="margin: 10px;">
+            <div class="navbar-brand navbar-start">
+                <a class="button navbar-tiem is-primary" href="/products">Back to overview</a>
             </div>
+        </div>
+        <h1 class="title box">New Product Form</h1>
+        <div class="columns box">
+            <form method="POST" action="/products">
+                <div class="field">
+                    <label class="label" for="prodName">Product Title</label>
+                    <div class="control">
+                        <input class="input" type="text" name="name" id="prodName"><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="prodPrice">Price</label>
+                    <div class="control">
+                        <input class="input" type="number" name="price" id="prodPrice"><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="prodQty">Quantity</label>
+                    <div class="control">
+                        <input class="input" type="number" name="qty" id="prodQty"><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="prodDescription">Description</label>
+                    <div class="control">
+                        <input class="input" type="text" name="description" id="prodDescription"><br>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="prodImg">Image</label>
+                    <div class="control">
+                        <input class="input is-link" type="text" name="img" id="prodImg"><br>
+                    </div>
+                </div>
+                <input class="button is-success" type="submit" value="Submit">
+                <a href="/products" class="button is-danger">Cancel</a>
+            </form>
         </div>
     </div>
 </body>
+
 </html>

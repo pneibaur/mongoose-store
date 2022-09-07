@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: blueviolet;
+    
+    height: 100vh;
+    margin: 0;
+    font-family: Helvetica;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px auto auto;
+    grid-template-areas: 
+    "hdr"
+    "side"
+    "content";
+}
+
+nav {
+    grid-area: hdr;
+    background-color: aquamarine;
+}
+
+.content {
+    grid-area: content;
+    background-color: antiquewhite;
+}
+
+.side {
+    grid-area: side;
+    background-color: bisque;
+}

@@ -1,26 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include("./partials/head.ejs") %>
 </head>
+
 <body>
-    <h1>Edit <%=item.name%> </h1>
-    <form action="/products/<%=item._id%>?_method=PUT" method="POST">
-        <fieldset>
-            <label for="itemName">Name:</label>
-            <input type="text" name="name" id="itemName" value="<%=item.name%>"><br>
-            <label for="itemPrice">Price:</label>
-            <input type="number" name="price" id="itemPrice" value="<%=item.price%>"><br>
-            <label for="itemQty">Quantity:</label>
-            <input type="number" name="qty" id="itemQty" value="<%=item.qty%>"><br>
-        </fieldset>
-        <fieldset>
-            <label for="itemDesc">Description:</label>
-            <input type="text" name="description" id="itemDesc" value="<%=item.description%>"><br>
-            <label for="itemImg">Price:</label>
-            <input type="text" name="img" id="itemImg" value="<%=item.img%>"><br>
-        </fieldset>
-        <input type="submit" value="Sumbit Changes"><br>
-    </form>
+    <div class="container is-fluid">
+        <!-- NAVBAR -->
+        <div class="navbar" role="navigation" aria-label="main navigation" style="margin: 10px;">
+            <div class="navbar-brand navbar-start">
+                <a class="navbar-item button is-primary" href="/products" style="margin-right: 10px;">Back to
+                    overview</a>
+                <a class="navbar-item button is-primary" href="/products/new">Add New Item</a>
+            </div>
+        </div>
+        <!-- TITLE HEADER -->
+        <div class="columns">
+            <div class="box colum">
+                <h1 class="title" style="margin: 10px;">Edit <%=item.name%>
+                </h1>
+                <img src="<%=item.img%>" alt="<%=item.name%> ">
+            </div>
+            <!-- EDIT FORM BODY -->
+            <div class="box colum">
+                <form action="/products/<%=item._id%>?_method=PUT" method="POST">
+                    <div class="field">
+                        <label class="label" for="itemName">Name:</label>
+                        <div class="control">
+                            <input class="input" type="text" name="name" id="itemName" value="<%=item.name%>"><br>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="itemPrice">Price:</label>
+                        <div class="control">
+                            <input class="input" type="number" name="price" id="itemPrice" value="<%=item.price%>"><br>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="itemQty">Quantity:</label>
+                        <div class="control">
+                            <input class="input" type="number" name="qty" id="itemQty" value="<%=item.qty%>"><br>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="itemDesc">Description:</label>
+                        <div class="control">
+                            <input class="input" type="text" name="description" id="itemDesc"
+                                value="<%=item.description%>"><br>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="itemImg">Image Link:</label>
+                        <div class="control">
+                            <input class="input" type="text" name="img" id="itemImg" value="<%=item.img%>"><br>
+                        </div>
+                    </div>
+                    <input class="button is-success" type="submit" value="Sumbit Changes">
+                    <a class="button is-danger" href="/products/<%=item._id%>">Cancel changes</a>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

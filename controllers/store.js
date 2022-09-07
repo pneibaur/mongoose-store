@@ -38,9 +38,22 @@ storeRouter.delete("/:id", (req, res)=>{
 
 // Update
 storeRouter.put("/:id", (req, res)=>{
+    console.log(req.body)
     Products.findByIdAndUpdate(
         req.params.id,
         req.body,
+        {new:true},
+        (error, updatedItem) =>{
+            res.redirect(`/products/${req.params.id}`)
+        }
+    )
+})
+storeRouter.put("/:id/buy", (req, res) =>{
+    console.log(req.body)
+    req.body.qty -= 1
+    Products.findByIdAndUpdate(
+        req.params.id,
+        // req.body,
         {new:true},
         (error, updatedItem) =>{
             res.redirect(`/products/${req.params.id}`)
