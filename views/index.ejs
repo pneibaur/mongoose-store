@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include("./partials/head.ejs") %>
 </head>
+
 <body>
     <div class="container is-fluid">
-    <nav class="navbar" role="navigation" aria-label="main navigation" style="margin: 10px;">
-        <div class="navbar-brand">
-            <div class="navbar-start navbar-item">
-                <a class="button is-success" href="/products/new">New Product</a>
+        <nav class="navbar" role="navigation" aria-label="main navigation" style="margin: 10px;">
+            <div class="navbar-brand">
+                <div class="navbar-start navbar-item">
+                    <a class="button is-success" href="/products/new">New Product</a>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
         <h1 class="title" style="margin: 10px;">Products Index</h1>
-        <ul class="columns is-mobile is-centered is-multiline" >
-            <% allProducts.forEach(product => { %>
-                <fieldset class="column">
+        <ul class="columns is-mobile is-centered is-multiline">
+            <% allProducts.forEach(product=> { %>
+                <div class="column is-one-quarter-tablet">
                     <li class="box" style="list-style-type: none; margin: 10px;">
-                        <a href="/products/<%=product._id%>"><%=product.name %>
-                            <img  src="<%=product.img%>" alt="<%=product.name%>">
+                        <a href="/products/<%=product._id%>">
+                            <%=product.name %>
+                                <img src="<%=product.img%>" alt="<%=product.name%>">
                         </a>
                         <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
-                            <input class="button is-small is-danger" type="submit" value="Delete">
-                            <a class="button is-small is-info" href="/products/<%=product._id%>/edit">Edit</a>
+                            <input class=" button is-small is-danger" type="submit" value="Delete">
+                            <a class=" button is-small is-info" href="/products/<%=product._id%>/edit">Edit</a>
                         </form>
                     </li>
-                </fieldset>
-            <% }); %> 
+                </div>
+                <% }); %>
         </ul>
     </div>
 </body>
+
 </html>

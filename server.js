@@ -22,6 +22,7 @@ DB.on("disconnected", ()=> console.log("Mongoose disconnected"))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"))
 app.use("/products", storeController)
+app.use(express.static("public"))
 
 ////// LISTENER
 const PORT = process.env.PORT || 3000

@@ -38,7 +38,11 @@
                 <div class="box">
                     <h5 class="subtitle is-3">Purchase</h5>
                     <form action="/products/<%=showProduct._id%>/buy?_method=PUT" method="POST">
-                        <br><input class="button is-large is-success" type="submit" value="BUY">
+                        <% if (showProduct.qty === 0){ %>
+                            <br><input class="button is-large is-danger" type="submit" value="OUT OF STOCK" disabled>
+                        <% } else { %>
+                            <br><input class="button is-large is-success" type="submit" value="BUY">
+                        <% } %> 
                     </form>
                 </div>
             </div>
