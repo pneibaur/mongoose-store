@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product: <%=showProduct.name%> </title>
+    <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    <nav><a href="/products">Back to overview</a></nav>
-    <div class="container">
-        <div class="sideImage">
-            <fieldset>
-                <img src="<%=showProduct.img%>" alt="<%=showProduct.name%>" style="max-width: 400px; max-height: auto;">
-            </fieldset>
-        </div>
-        <div class="sidebar">
-            <fieldset>
+    <nav><a class="button is-link" href="/products">Back to overview</a></nav>
+    <div class="container columns" style="display: flex; flex-direction: row;">
+        <div class="column">
+            <fieldset class="block">
                 <h1>Product: <%=showProduct.name %></h1>
                 <h3>Description: <%=showProduct.description %></h3>
                 <h5>Price: <%=showProduct.price %></h5>
                 <h5>Quantity: <%=showProduct.qty %></h5>
+                <a class="button is-small is-link" href="#">Edit this item</a>
+            </fieldset>
+        </div>
+        <div class="column">
+            <fieldset class="block">
+                <img src="<%=showProduct.img%>" alt="<%=showProduct.name%>" style="max-width: 400px; max-height: auto;">
             </fieldset>
         </div>
     </div>

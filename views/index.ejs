@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products Index</title>
+    <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    <nav><a href="/products/new">New Product</a></nav>
-    <h1>Products Index</h1>
-    <ul style="display: flex;">
-        <% allProducts.forEach(product => { %>
-            <fieldset>
-                <li style="display:flex; flex-direction: column; list-style-type: none;">
-                    <a href="/products/<%=product._id%>"><%=product.name %></a>
-                    <img  src="<%=product.img%>" style="max-height: 100px; max-width: auto;" alt="<%=product.name%>">
-                    <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="Delete">
-                        <button><a href="/products/<%=product._id%>/edit">Edit</a></button>
-                    </form>
-                </li>
-            </fieldset>
-        <% }); %> 
-    </ul>
+    <div class="container">
+        <nav><a class="button is-link" href="/products/new">New Product</a></nav>
+        <h1>Products Index</h1>
+        <ul class="columns" style="display: flex;">
+            <% allProducts.forEach(product => { %>
+                <fieldset>
+                    <li class="column" style="display:flex; flex-direction: column; list-style-type: none;">
+                        <a href="/products/<%=product._id%>"><%=product.name %></a>
+                        <img  src="<%=product.img%>" style="max-height: 100px; max-width: auto;" alt="<%=product.name%>">
+                        <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+                            <input class="button is-small is-link" type="submit" value="Delete">
+                            <a class="button is-small is-link" href="#">Edit</a>
+                        </form>
+                    </li>
+                </fieldset>
+            <% }); %> 
+        </ul>
+    </div>
 </body>
 </html>

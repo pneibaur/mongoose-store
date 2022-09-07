@@ -23,27 +23,30 @@ app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"))
 
 ////// ROUTES
-// root & seed
-app.get("/", (req, res)=> res.send("<a href='/products'>Go to Products</a>"))
-app.get("/products/seed", (req, res)=>{
-    Products.deleteMany({}, (error, allProducts)=>{})
-    Products.create(seedData, (error, data)=>{
-        res.redirect("/products")
-    })
-})
+// root & seed ------- COMMENTING OUT as I currently don't want to go to this route right now. 
+// app.get("/", (req, res)=> res.send("<a href='/products'>Go to Products</a>"))
+// app.get("/products/seed", (req, res)=>{
+//     Products.deleteMany({}, (error, allProducts)=>{})
+//     Products.create(seedData, (error, data)=>{
+//         res.redirect("/products")
+//     })
+// })
 
 // Index
 app.get("/products", (req, res)=>{
     Products.find({}, (error, allProducts)=>{
         res.render("index.ejs", {
             allProducts: allProducts,
+            tabTitle: "All Items"
         })
     })
 })
 
 // New
 app.get("/products/new", (req, res)=>{
-    res.render("new.ejs")
+    res.render("new.ejs", {
+        tabTitle: "New Item"
+    })
 })
 // Destroy
 app.delete("/products/:id", (req, res)=>{
@@ -78,6 +81,7 @@ app.get("/products/:id", (req, res)=>{
     Products.findById(req.params.id, (error, foundProduct) =>{
         res.render("show.ejs", {
             showProduct: foundProduct,
+            tabTitle: "Item View",
         })
     })
 })
