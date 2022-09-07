@@ -7,12 +7,20 @@
     <title>Products Index</title>
 </head>
 <body>
+    <nav><a href="/products/new">New Product</a></nav>
     <h1>Products Index</h1>
-    <ul>
+    <ul style="display: flex;">
         <% allProducts.forEach(product => { %>
-            <li>
-                <a href="/products/<%=product._id%>"><%=product.name %></a>
-            </li>
+            <fieldset>
+                <li style="display:flex; flex-direction: column; list-style-type: none;">
+                    <a href="/products/<%=product._id%>"><%=product.name %></a>
+                    <img  src="<%=product.img%>" style="max-height: 100px; max-width: auto;" alt="<%=product.name%>">
+                    <form action="/products/<%=product._id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete">
+                        <button><a href="/products/<%=product._id%>/edit">Edit</a></button>
+                    </form>
+                </li>
+            </fieldset>
         <% }); %> 
     </ul>
 </body>

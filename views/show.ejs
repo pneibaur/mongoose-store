@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product: <%=foundProduct.name %> </title>
+    <title>Product: <%=showProduct.name%> </title>
 </head>
 <body>
     <nav><a href="/products">Back to overview</a></nav>
-    <br>
-    <img src="<%=foundProduct.img%>" alt="<%=foundProduct.name%>">
-    <h1>Product: <%=foundProduct.name %></h1>
-    <h3>Description: <%=foundProduct.description %></h3>
-    <h5>Price: <%=foundProduct.price %></h5>
-    <h5>Quantity: <%=foundProduct.qty %></h5>
+    <div class="container">
+        <div class="sideImage">
+            <fieldset>
+                <img src="<%=showProduct.img%>" alt="<%=showProduct.name%>" style="max-width: 400px; max-height: auto;">
+            </fieldset>
+        </div>
+        <div class="sidebar">
+            <fieldset>
+                <h1>Product: <%=showProduct.name %></h1>
+                <h3>Description: <%=showProduct.description %></h3>
+                <h5>Price: <%=showProduct.price %></h5>
+                <h5>Quantity: <%=showProduct.qty %></h5>
+            </fieldset>
+        </div>
+    </div>
 </body>
 </html>
