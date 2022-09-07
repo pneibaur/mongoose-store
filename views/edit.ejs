@@ -4,6 +4,23 @@
     <%- include("./partials/head.ejs") %>
 </head>
 <body>
-    <h1>Edit Product</h1>
+    <h1>Edit <%=item.name%> </h1>
+    <form action="/products/<%=item._id%>?_method=PUT" method="POST">
+        <fieldset>
+            <label for="itemName">Name:</label>
+            <input type="text" name="name" id="itemName" value="<%=item.name%>"><br>
+            <label for="itemPrice">Price:</label>
+            <input type="number" name="price" id="itemPrice" value="<%=item.price%>"><br>
+            <label for="itemQty">Quantity:</label>
+            <input type="number" name="qty" id="itemQty" value="<%=item.qty%>"><br>
+        </fieldset>
+        <fieldset>
+            <label for="itemDesc">Description:</label>
+            <input type="text" name="description" id="itemDesc" value="<%=item.description%>"><br>
+            <label for="itemImg">Price:</label>
+            <input type="text" name="img" id="itemImg" value="<%=item.img%>"><br>
+        </fieldset>
+        <input type="submit" value="Sumbit Changes"><br>
+    </form>
 </body>
 </html>

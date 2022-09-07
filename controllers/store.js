@@ -55,10 +55,12 @@ storeRouter.post("/", (req, res)=>{
 })
 
 // Edit 
-// ///////////////I attemted to do this by memory, but couldn't make it work and ran out of time. 
 storeRouter.get("/:id/edit", (req, res)=>{
     Products.findById(req.params.id, (error, foundItem)=>{
-        res.redirect("/products")
+        res.render("edit.ejs", {
+            item: foundItem,
+            tabTitle: "Edit Item",
+        })
     })
 })
 // Show
