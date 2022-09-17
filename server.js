@@ -24,6 +24,13 @@ app.use(methodOverride("_method"))
 app.use("/products", storeController)
 app.use(express.static("public"))
 
+/////// ROOT ROUTE
+app.get("/", (req, res) =>{
+    res.render("root.ejs", {
+        tabTitle: "Mongoods"
+    })
+})
+
 ////// LISTENER
 const PORT = process.env.PORT || 3000
 app.listen(PORT, ()=> console.log("connected on port", PORT))
